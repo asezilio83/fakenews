@@ -1,0 +1,96 @@
+<html><head>
+    
+    <title>Validar Noticia</title>
+    <meta charset="utf-8">
+     <link rel="stylesheet" href="estilo.css" type="text/css">
+     <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+     <script src="/static/js/app.js"></script>
+     
+ 
+     <script >
+     function verificar() {
+       let conteudo = document.getElementById('texto').value;
+       conteudo.length
+        let retorno;
+ 
+       if (conteudo.length <= 100){
+         resultado = 'não contem palavras para analise';
+       }else{
+         resultado = 'Pesquisa sendo processada ... Aguarde';
+       }
+       document.getElementById('resultado').innerHTML = resultado;
+     }
+
+     
+     /* contar palavras */ 
+     function contarpalavra(valor){			
+			valor.replace(/(\r\n|\n|\r)/g," ").trim();
+			
+			var cont = valor.split(/\s+/g).length - 1;
+						
+			if(cont == "1" || cont == "0"){
+				document.getElementById("quantidade2").value = cont + " Palavra";
+			}else{
+				document.getElementById("quantidade2").value = cont + " Palavras";
+			}
+		}
+/*FIM*/
+
+ </script> 
+  </head>
+  <body>
+	
+    <nav>
+		<img src="./img/200x28.png">
+        <br>- Projeto Integrado I-
+      
+</nav>
+
+<br>
+
+    <main>
+      
+<div class="container">
+
+	<div class="center-align"> 
+		<h3 id="teste">Detector de Fake News</h3>
+		<hr>
+	</div>
+
+	<div class="container">
+		<h5 class="col s12 m10 l6 offset-l3 offset-m1">Como funciona?</h5>
+		<p class="col s12 m10 l6 offset-l3 offset-m1"> <b>Copie o texto de uma notícia, cole na caixa abaixo e clique em "VERIFICAR".</b> O sistema irá processar o texto para identificar características de escrita, como palavras usadas ou classes gramaticais mais frequentes, e utilizar essas características em um modelo de aprendizado de máquina que classificará a notícia em verdadeira ou falsa.<!--  Para mais informações sobre como o sistema funciona e sua taxa de acerto, clique <a href="/about">aqui</a>. Você também pode utilizar o nosso <a href="https://otwoo.app/nilc-fakenews">bot do WhatsApp</a>. --></p>
+		<p class="col s12 m10 l6 offset-l3 offset-m1"> <b>ATENÇÃO: Utilize o texto completo da notícia! O texto deve ter pelo menos 100 palavras</b>. O sistema pode não funcionar corretamente com apenas partes de notícias. 
+	</p></div>
+
+</div>
+	<br>
+    
+		<div class="container"> 
+      <label for="busca">Inserir Notícia</label><br>
+     	<textarea type="text" id="texto" name="strText" style="width: 310px; height: 120px;"></textarea>
+		  <br><center><button id="verifica" onclick="verificar()" class="btn first">VERIFICAR</button></center>
+        <span id="resultado"></span>
+    </div>
+   
+		
+	
+
+
+    </main>
+
+ 
+ <br>
+<footer class="page-footer" >
+    <div class=""><center>
+      Criado por Anderson Alves Santos Sezilio - Projeto Integrado 3° semestre ADS
+      <span class="text right">2021</span></center>
+    </div>
+</footer>
+
+ 
+
+  
+
